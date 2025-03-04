@@ -1,0 +1,40 @@
+
+    <MudGrid Class="pt-0 mb-1">
+        <MudItem xs="12">
+            <MudPaper Class="d-flex flex-nowrap gap-6 hz-container" MaxWidth="560px" Height="300px" Elevation="0">
+                @for (int i = 0; i < 5; i++)
+                {    
+                    <MudPaper Class="flex-none rounded-lg" Width="200px" Height="200px">
+                        <MudCard Elevation="1">
+                            <MudCardMedia Image="images/door.jpg" Height="140"/>
+                            <MudCardContent>
+                                <MudText Typo="Typo.subtitle1">Door, Outer Banks</MudText>
+                            </MudCardContent>
+                            <MudCardActions Class="ma-1 pa-0">
+                                <MudIconButton Class="pa-1" Icon="@Icons.Material.Filled.Favorite" Color="Color.Secondary" />
+                                <MudIconButton Class="pa-1" Icon="@Icons.Material.Filled.Share" Color="Color.Info" />
+                            </MudCardActions>
+                        </MudCard>
+                    </MudPaper>
+                }
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+
+@code {
+    private SwipeDirection _swipeDirection;
+    private MudTheme Theme = new MudTheme();
+}
+
+<style>
+    .hz-container {
+        display: flex;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .hz-container::-webkit-scrollbar {
+        display: none;
+    }
+</style>

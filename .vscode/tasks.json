@@ -1,0 +1,20 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "watch AktiveBarn.Web",
+			"file": "C:\\privprojects\\AktiveBarn\\src\\AktiveBarn.Web\\AktiveBarn.Web.csproj",
+			"label": "watch AktiveBarn.Web",
+			"problemMatcher": "$msCompile",
+			"isBackground": true
+		},
+		{
+			"type": "dotnet",
+			"task": "build",
+			"group": "build",
+			"problemMatcher": "$msCompile",
+			"label": "dotnet: build"
+		}
+	]
+}
