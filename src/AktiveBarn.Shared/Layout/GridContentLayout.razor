@@ -1,0 +1,23 @@
+<MudGrid Justify="Justify.Center">
+   @if (TopFragment != null)
+   {
+      <MudItem xs="12">
+         @TopFragment
+      </MudItem>
+   }
+
+   @if (ContentFragment != null)
+   {
+      @ContentFragment
+   }
+</MudGrid>
+
+<MudAppBar Elevation="1" Style="top: auto; bottom: 0">
+   This is footer
+</MudAppBar>
+
+
+@code {
+   [Parameter] public RenderFragment? TopFragment { get; set; }
+   [Parameter] public RenderFragment? ContentFragment { get; set; }
+}
