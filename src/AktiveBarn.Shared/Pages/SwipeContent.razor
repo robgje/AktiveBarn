@@ -1,32 +1,66 @@
-
-    <MudGrid Class="pt-0 mb-1">
-        <MudItem xs="12">
-            <MudPaper Class="d-flex flex-nowrap gap-6 hz-container" MaxWidth="560px" Height="300px" Elevation="0">
-                @for (int i = 0; i < 5; i++)
-                {    
-                    <MudPaper Class="flex-none rounded-lg" Width="200px" Height="200px">
-                        <MudCard Elevation="1">
-                            <MudCardMedia Image="images/door.jpg" Height="140"/>
-                            <MudCardContent>
-                                <MudText Typo="Typo.subtitle1">Door, Outer Banks</MudText>
-                            </MudCardContent>
-                            <MudCardActions Class="ma-1 pa-0">
+<MudGrid Class="pt-0 mb-1" Spacing="1">
+    <MudItem xs="12" md="8">
+        <MudPaper Class="title-paper" Elevation="0">
+            <MudText Typo="Typo.h6">@(title)</MudText> @* TODO: Fix text color *@
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12">
+        <MudPaper Class="d-flex no-wrap gap-6 hz-container paper-card" Elevation="0">
+            @for (int i = 0; i < 5; i++)
+            {    
+                <MudPaper Class="flex-none" Width="190px" Height="220px" Elevation="0">
+                    <MudCard Elevation="6" Outlined="true">
+                        <MudCardMedia Image="images/door.jpg" Height="140" />
+                        <MudCardContent Class="pa-1">
+                            <MudText Typo="Typo.subtitle1">Door, Outer Banks</MudText>
+                        </MudCardContent>
+                        <MudPaper Class="d-flex" Elevation="0" >
+                            <MudCardActions Class="justify-start ma-1 pa-0">
                                 <MudIconButton Class="pa-1" Icon="@Icons.Material.Filled.Favorite" Color="Color.Secondary" />
                                 <MudIconButton Class="pa-1" Icon="@Icons.Material.Filled.Share" Color="Color.Info" />
                             </MudCardActions>
-                        </MudCard>
-                    </MudPaper>
-                }
-            </MudPaper>
-        </MudItem>
-    </MudGrid>
+                            <MudDivider Class="justify-start mt-1 mb-1" Vertical="true" FlexItem="true" />
+                            <MudPaper Class="ma-1 d-flex flex-row-reverse" Elevation="0" Width="100%">
+                                <MudStack Spacing="0" Wrap="Wrap.WrapReverse" AlignItems="AlignItems.Start" Style="height: 40px;">
+                                    <MudIcon Icon="@Icons.Custom.Uncategorized.FoodApple" Color="Color.Success" Size="Size.Small"/>
+                                    <MudIcon Icon="@Icons.Material.Rounded.LocalCafe" Color="Color.Info" Size="Size.Small"/>
+                                    <MudIcon Icon="@Icons.Material.Rounded.BeachAccess" Color="Color.Warning" Size="Size.Small"/>
+                                    <MudIcon Icon="@treeSvg" Color="Color.Info" Size="Size.Small"/>
+                                    <MudIcon Icon="@treasureMapSvg" Color="Color.Info" Size="Size.Small"/>
+                                    <MudIcon Icon="@adventureTrailImgToSvg" Size="Size.Small"/>
+                                    <MudIcon Icon="@bonfireImgToSvg" Color="Color.Warning" Size="Size.Small"/>
+                                </MudStack>
+                            </MudPaper>
+                        </MudPaper>
+                    </MudCard>
+                </MudPaper>
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>
 
 @code {
-    private SwipeDirection _swipeDirection;
+    [Parameter] public string? title { get; set; }
     private MudTheme Theme = new MudTheme();
+
+    private string treeSvg = @"<svg xmlns=""http://www.w3.org/2000/svg"" viewBox=""0 0 448 512""><path fill=""#000000"" d=""M210.6 5.9L62 169.4c-3.9 4.2-6 9.8-6 15.5C56 197.7 66.3 208 79.1 208l24.9 0L30.6 281.4c-4.2 4.2-6.6 10-6.6 16C24 309.9 34.1 320 46.6 320L80 320 5.4 409.5C1.9 413.7 0 419 0 424.5c0 13 10.5 23.5 23.5 23.5L192 448l0 32c0 17.7 14.3 32 32 32s32-14.3 32-32l0-32 168.5 0c13 0 23.5-10.5 23.5-23.5c0-5.5-1.9-10.8-5.4-15L368 320l33.4 0c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L344 208l24.9 0c12.7 0 23.1-10.3 23.1-23.1c0-5.7-2.1-11.3-6-15.5L237.4 5.9C234 2.1 229.1 0 224 0s-10 2.1-13.4 5.9z""/></svg>";
+    private string adventureTrailImgToSvg = """<image width="100%" height="100%" xlink:href="images/adventure-trail-3.png" />""";
+    private string bonfireImgToSvg = """<image width="100%" height="100%" xlink:href="images/bonfire.png" />""";
+
+    private string treasureMapSvg = @"
+                                    <svg style=""width:24px;height:24px"" viewBox=""0 0 24 24"" fill=""none"" xmlns=""http://www.w3.org/2000/svg"">
+                                        <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M14.3675 2.15671C14.7781 2.01987 15.2219 2.01987 15.6325 2.15671L20.6325 3.82338C21.4491 4.09561 22 4.85988 22 5.72074V19.6126C22 20.9777 20.6626 21.9416 19.3675 21.5099L15 20.0541L9.63246 21.8433C9.22192 21.9801 8.77808 21.9801 8.36754 21.8433L3.36754 20.1766C2.55086 19.9044 2 19.1401 2 18.2792V4.38741C2 3.0223 3.33739 2.05836 4.63246 2.49004L9 3.94589L14.3675 2.15671ZM15 4.05408L9.63246 5.84326C9.22192 5.9801 8.77808 5.9801 8.36754 5.84326L4 4.38741V18.2792L9 19.9459L14.3675 18.1567C14.7781 18.0199 15.2219 18.0199 15.6325 18.1567L20 19.6126V5.72074L15 4.05408ZM13.2929 8.29288C13.6834 7.90235 14.3166 7.90235 14.7071 8.29288L15.5 9.08577L16.2929 8.29288C16.6834 7.90235 17.3166 7.90235 17.7071 8.29288C18.0976 8.6834 18.0976 9.31657 17.7071 9.70709L16.9142 10.5L17.7071 11.2929C18.0976 11.6834 18.0976 12.3166 17.7071 12.7071C17.3166 13.0976 16.6834 13.0976 16.2929 12.7071L15.5 11.9142L14.7071 12.7071C14.3166 13.0976 13.6834 13.0976 13.2929 12.7071C12.9024 12.3166 12.9024 11.6834 13.2929 11.2929L14.0858 10.5L13.2929 9.70709C12.9024 9.31657 12.9024 8.6834 13.2929 8.29288ZM6 16C6.55228 16 7 15.5523 7 15C7 14.4477 6.55228 14 6 14C5.44772 14 5 14.4477 5 15C5 15.5523 5.44772 16 6 16ZM9 12C9 12.5523 8.55228 13 8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11C8.55228 11 9 11.4477 9 12ZM11 12C11.5523 12 12 11.5523 12 11C12 10.4477 11.5523 9.99998 11 9.99998C10.4477 9.99998 10 10.4477 10 11C10 11.5523 10.4477 12 11 12Z"" fill=""#000000""/>
+                                    </svg>";
 }
 
+
+
 <style>
+    .title-paper {
+        background-color: var(--mud-paper-elevation-0);
+        padding: var(--pa-4);
+    }
+
     .hz-container {
         display: flex;
         overflow-x: auto;
@@ -36,5 +70,9 @@
 
     .hz-container::-webkit-scrollbar {
         display: none;
+    }
+
+    .paper-card {
+        background-color: #F2F2F2;
     }
 </style>
