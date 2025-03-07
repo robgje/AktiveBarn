@@ -6,10 +6,10 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-    <MudAppBar Color="Color.Transparent" Elevation="0" >
+    <MudAppBar Color="Color.Transparent" Elevation="0">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
     </MudAppBar>
-    <MudDrawer @bind-Open="@_drawerOpen" Elevation="1">
+    <MudDrawer @bind-Open="@_drawerOpen" Elevation="0" Class="pt-8">
         <NavMenu />
     </MudDrawer>
     <MudMainContent Class="main-content">
@@ -28,8 +28,6 @@
 <style>
     .main-content {
         background-color: #F2F2F2;
-        margin-bottom: 24px;
         padding-top: 0;
-        position: relative;
     }
 </style>

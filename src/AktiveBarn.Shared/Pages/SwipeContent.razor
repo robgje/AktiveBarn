@@ -5,10 +5,10 @@
         </MudPaper>
     </MudItem>
     <MudItem xs="12">
-        <MudPaper Class="d-flex no-wrap gap-6 hz-container paper-card" Elevation="0">
+        <MudPaper Class="d-flex gap-6 hz-container paper-card" Elevation="0">
             @for (int i = 0; i < 5; i++)
             {    
-                <MudPaper Class="flex-none" Width="190px" Height="220px" Elevation="0">
+                <MudPaper Class="flex-none rounded-lg" Width="170px" Elevation="0">
                     <MudCard Elevation="6" Outlined="true">
                         <MudCardMedia Image="images/door.jpg" Height="140" />
                         <MudCardContent Class="pa-1">
@@ -62,7 +62,6 @@
     }
 
     .hz-container {
-        display: flex;
         overflow-x: auto;
         -ms-overflow-style: none;
         scrollbar-width: none;
