@@ -1,27 +1,30 @@
 @using AktiveBarn.Shared.Pages.Common
 <MudGrid Class="pt-0 mb-1" Spacing="1">
-    <MudItem xs="12" md="8">
-        <MudPaper Class="title-paper" Elevation="0">
-            <MudText Typo="Typo.h6">@(title)</MudText> @* TODO: Fix text color *@
-        </MudPaper>
-    </MudItem>
+    @if (title != default)
+    {
+        <MudItem xs="12" md="8">
+            <MudPaper Class="title-paper" Elevation="0">
+                <MudText Typo="Typo.h6">@(title)</MudText> @* TODO: Fix text color *@
+            </MudPaper>
+        </MudItem>
+    }
     <MudItem xs="12">
-        <MudPaper Class="d-flex gap-6 hz-container paper-card justify-md-start" Elevation="0">
+        <MudPaper Class="d-flex gap-6 hz-container transparent-card justify-md-start" Elevation="0">
             @for (int i = 0; i < 5; i++)
             {    
-                <MudPaper Class="flex-none rounded-lg" Width="170px" Elevation="0">
-                    <MudCard Elevation="6" Outlined="true">
+                <MudPaper Class="flex-none transparent-card" Width="170px" Elevation="0">
+                    <MudCard Class="rounded-xl" Elevation="6" Outlined="true">
                         <MudCardMedia Image="images/door.jpg" Height="140" />
                         <MudCardContent Class="pa-1">
                             <MudText Typo="Typo.subtitle1">Door, Outer Banks</MudText>
                         </MudCardContent>
-                        <MudPaper Class="d-flex" Elevation="0" >
+                        <MudPaper Class="d-flex transparent-card" Elevation="0" >
                             <MudCardActions Class="justify-start ma-1 pa-0">
                                 <MudIconButton Class="pa-1" Icon="@Icons.Material.Filled.Favorite" Color="Color.Secondary" />
                                 <MudIconButton Class="pa-1" Icon="@Icons.Material.Filled.Share" Color="Color.Info" />
                             </MudCardActions>
                             <MudDivider Class="justify-start mt-1 mb-1" Vertical="true" FlexItem="true" />
-                            <MudPaper Class="ma-1 d-flex flex-row-reverse" Elevation="0" Width="100%">
+                            <MudPaper Class="ma-1 d-flex flex-row-reverse mr-2" Elevation="0" Width="100%">
                                 <MudStack Spacing="0" Wrap="Wrap.WrapReverse" AlignItems="AlignItems.Start" Style="height: 40px;">
                                     <MudIcon Icon="@Icons.Custom.Uncategorized.FoodApple" Color="Color.Success" Size="Size.Small"/>
                                     <MudIcon Icon="@Icons.Material.Rounded.LocalCafe" Color="Color.Info" Size="Size.Small"/>
@@ -29,8 +32,6 @@
                                     <MudIcon Icon="@treeSvg" Color="Color.Info" Size="Size.Small"/>
                                     <MudIcon Icon="@treasureMapSvg" Color="Color.Info" Size="Size.Small"/>
                                     <MudIcon Icon="@adventureTrailImgToSvg" Size="Size.Small"/>
-                                    <MudIcon Icon="@bonfireImgToSvg" Color="Color.Warning" Size="Size.Small"/>
-                                    <MudIcon Icon="@strollerSvg" Color="Color.Warning" Size="Size.Small"/>
                                 </MudStack>
                             </MudPaper>
                         </MudPaper>
@@ -77,7 +78,7 @@
         scrollbar-width: none;
     }
 
-    .paper-divider {
+    .transparent-card  {
         background-color: var(--mud-paper-elevation-0);
     }
 

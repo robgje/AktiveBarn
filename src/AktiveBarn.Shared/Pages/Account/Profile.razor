@@ -6,11 +6,14 @@
         <MudPaper Class="d-flex flex-column align-center justify-center mud-width-full pt-6 pb-4 rounded-b-xl">
             <MudStack AlignItems="AlignItems.Center" Justify="Justify.Center">
                 @* TODO: Make badge clickable and hoverable *@
-                <MudBadge Icon="@Icons.Material.Filled.Edit" Color="Color.Info" Overlap="true" Bordered="true" BadgeClass="avatar-badge">
+                <MudPaper Class="d-flex justify-center align-content-center rounded-lg" Elevation="0">
                     <MudAvatar Style="@($"height:{ImageSize}px; width:{ImageSize}px;")" Elevation="4">
                         <MudImage ObjectFit="ObjectFit.ScaleDown" Src="images/dogprofile.png" Fluid="true"/>
                     </MudAvatar>
-                </MudBadge>
+                    <button class="mud-button-root d-flex align-start"> @* Class="z-90" Size="Size.Small" Color="Color.Transparent" Variant="Variant.Text" Ripple="true" DropShadow="true"*@
+                        <MudBadge Icon="@Icons.Material.Filled.Edit" Class="mt-2" Color="Color.Info" Overlap="true" Bordered="true" Origin="Origin.TopRight" />
+                    </button>
+                </MudPaper>
                 <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.Center">
                     <MudIcon Icon="@GoogleSvgIcon" Title="Logged in with google" Size="Size.Small"/>
                     <MudDivider Vertical="true" FlexItem="true" />

@@ -1,10 +1,13 @@
 ﻿@page "/"
 @using AktiveBarn.Shared.Layout
+@using AktiveBarn.Shared.Pages.Account
 @using AktiveBarn.Shared.Pages.Activity
+@using AktiveBarn.Shared.Pages.Common
+@using AktiveBarn.Shared.Pages.Events
 
 <GridContentLayout>
    <TopFragment>
-      <ActivityItemCarousel/>
+      <Account/>
    </TopFragment>
    <ContentFragment>
       <MudItem xs="12">
@@ -14,7 +17,12 @@
       </MudItem>
       <MudItem xs="12">
          <MudContainer MaxWidth="MaxWidth.Large">
-            <ActivitySwipe title="Favorites" />      
+            <PaperDivider />
+         </MudContainer>
+      </MudItem>
+      <MudItem xs="12">
+         <MudContainer MaxWidth="MaxWidth.Large">
+            <EventList />
          </MudContainer>
       </MudItem>
    </ContentFragment>

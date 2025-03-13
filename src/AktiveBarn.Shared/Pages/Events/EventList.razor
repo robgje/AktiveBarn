@@ -1,0 +1,40 @@
+@* https://dribbble.com/shots/4816476--Taekwon-Do-Competitions-Schedule *@
+@* https://dribbble.com/tags/event-card *@
+
+<MudContainer MaxWidth="MaxWidth.Large">
+    <MudPaper Class="mud-theme-primary">
+        <MudGrid Justify="Justify.FlexStart">
+            @foreach (var item in events)
+            {
+                <MudItem xs="12" md="6">
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudPaper Elevation="0">
+                                <MudText Typo="Typo.h6">@item.Name</MudText>
+                            </MudPaper>
+                        </MudItem>
+                    </MudGrid>
+                </MudItem>
+            }
+        </MudGrid>
+
+    </MudPaper>
+</MudContainer>
+
+@code {
+    private List<EventItem> events = new List<EventItem>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load events here
+        events = [
+        new() { Name = "Event 1" },
+new() { Name = "Event 2" }
+        ];
+    }
+
+    class EventItem
+    {
+        public required string Name { get; set; }
+    }
+}
