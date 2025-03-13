@@ -4,15 +4,15 @@
         <MudImage ObjectFit="ObjectFit.Cover" Src="images/city.jpg" Class="carousel-image" />
         <MudGrid Justify="Justify.SpaceBetween" Spacing="4">
             <MudItem xs="12" Class="image-content image-content-tr">
-                <MudGrid Justify="Justify.FlexEnd" Spacing="0">
-                    <MudItem xs="1" Class="flex-initial">
+                <MudGrid Justify="Justify.FlexEnd" Spacing="0" Class="grid-action-icons">
+                    <MudItem xs="1" Class="flex-initial align-content-center">
                         <MudPaper Class="d-flex flex-row justify-center mud-width-full image-content-paper" Elevation="0">
                             <MudIconButton Icon="@Icons.Material.Rounded.FavoriteBorder" Color="Color.Dark" />
                         </MudPaper>
                     </MudItem>
-                    <MudItem xs="1" Class="flex-initial">
+                    <MudItem xs="1" Class="flex-initial align-content-center">
                         <MudPaper Class="d-flex flex-row justify-center mud-width-full image-content-paper" Elevation="0">
-                            <MudIconButton Icon="@Icons.Material.Rounded.FavoriteBorder" Color="Color.Dark" />
+                            <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Info" />
                         </MudPaper>
                     </MudItem>
                 </MudGrid>
@@ -20,13 +20,13 @@
             <MudFlexBreak />
             <MudItem xs="12" Class="image-content">
                 <MudGrid Justify="Justify.FlexStart" Class="pa-2" Spacing="0">
-                    <MudItem xs="10">
+                    <MudItem xs="12">
                         <MudPaper Class="d-flex flex-row mud-width-full image-content-paper" Elevation="0">
                             <MudText Typo="Typo.h6">Shanghai</MudText>
                         </MudPaper>
                     </MudItem>
                     <MudFlexBreak />
-                    <MudItem xs="10">
+                    <MudItem xs="12">
                         <MudPaper Class="d-flex flex-row mud-width-full image-content-paper" Elevation="0">
                             <MudText Typo="Typo.caption">Modern skyline metropolis</MudText>
                         </MudPaper>
@@ -36,22 +36,74 @@
         </MudGrid>
     </MudCarouselItem>
     <MudCarouselItem Transition="transition" Color="@Color.Transparent">
-        <MudCard>
-            <MudImage ObjectFit="ObjectFit.Cover" Src="images/door.jpg" Class="carousel-image" />
-            <MudCardContent Class="image-content">
-                <MudText Typo="Typo.h6">Locked door</MudText>
-                <MudText Typo="Typo.caption">Cabin in the woods</MudText>
-            </MudCardContent>
-        </MudCard>
+        <MudImage ObjectFit="ObjectFit.Cover" Src="images/door.jpg" Class="carousel-image" />
+        <MudGrid Justify="Justify.SpaceBetween" Spacing="4">
+            <MudItem xs="12" Class="image-content image-content-tr">
+                <MudGrid Justify="Justify.FlexEnd" Spacing="0" Class="grid-action-icons">
+                    <MudItem xs="1" Class="flex-initial align-content-center">
+                        <MudPaper Class="d-flex flex-row justify-center mud-width-full image-content-paper" Elevation="0">
+                            <MudIconButton Icon="@Icons.Material.Rounded.FavoriteBorder" Color="Color.Dark" />
+                        </MudPaper>
+                    </MudItem>
+                    <MudItem xs="1" Class="flex-initial align-content-center">
+                        <MudPaper Class="d-flex flex-row justify-center mud-width-full image-content-paper" Elevation="0">
+                            <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Info" />
+                        </MudPaper>
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudFlexBreak />
+            <MudItem xs="12" Class="image-content">
+                <MudGrid Justify="Justify.FlexStart" Class="pa-2" Spacing="0">
+                    <MudItem xs="12">
+                        <MudPaper Class="d-flex flex-row mud-width-full image-content-paper" Elevation="0">
+                            <MudText Typo="Typo.h6">Shanghai</MudText>
+                        </MudPaper>
+                    </MudItem>
+                    <MudFlexBreak />
+                    <MudItem xs="12">
+                        <MudPaper Class="d-flex flex-row mud-width-full image-content-paper" Elevation="0">
+                            <MudText Typo="Typo.caption">Modern skyline metropolis</MudText>
+                        </MudPaper>
+                    </MudItem>
+                </MudGrid>
+            </MudItem> 
+        </MudGrid>
     </MudCarouselItem>
     <MudCarouselItem Transition="transition" Color="@Color.Transparent">
-        <MudCard>
-            <MudImage ObjectFit="ObjectFit.Cover" Src="images/mountain.jpg" Class="carousel-image" />
-            <MudCardContent Class="image-content">
-                <MudText Typo="Typo.h6">Mt.Everest</MudText>
-                <MudText Typo="Typo.caption">Tallest mountain in the world</MudText>
-            </MudCardContent>
-        </MudCard>
+        <MudImage ObjectFit="ObjectFit.Cover" Src="images/mountain.jpg" Class="carousel-image" />
+        <MudGrid Justify="Justify.SpaceBetween" Spacing="4">
+            <MudItem xs="12" Class="image-content image-content-tr">
+                <MudGrid Justify="Justify.FlexEnd" Spacing="0" Class="grid-action-icons">
+                    <MudItem xs="1" Class="flex-initial align-content-center">
+                        <MudPaper Class="d-flex flex-row justify-center mud-width-full image-content-paper" Elevation="0">
+                            <MudIconButton Icon="@Icons.Material.Rounded.FavoriteBorder" Color="Color.Dark" />
+                        </MudPaper>
+                    </MudItem>
+                    <MudItem xs="1" Class="flex-initial align-content-center">
+                        <MudPaper Class="d-flex flex-row justify-center mud-width-full image-content-paper" Elevation="0">
+                            <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Info" />
+                        </MudPaper>
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudFlexBreak />
+            <MudItem xs="12" Class="image-content">
+                <MudGrid Justify="Justify.FlexStart" Class="pa-2" Spacing="0">
+                    <MudItem xs="12">
+                        <MudPaper Class="d-flex flex-row mud-width-full image-content-paper" Elevation="0">
+                            <MudText Typo="Typo.h6">Shanghai</MudText>
+                        </MudPaper>
+                    </MudItem>
+                    <MudFlexBreak />
+                    <MudItem xs="12">
+                        <MudPaper Class="d-flex flex-row mud-width-full image-content-paper" Elevation="0">
+                            <MudText Typo="Typo.caption">Modern skyline metropolis</MudText>
+                        </MudPaper>
+                    </MudItem>
+                </MudGrid>
+            </MudItem> 
+        </MudGrid>
     </MudCarouselItem>
 </MudCarousel>
         
@@ -68,7 +120,6 @@
     }
 }
 
-@* TODO: Replace padding-top with a more intuitive and possibly calculative way *@ 
 <style>
     .image-content {
         position: absolute;
@@ -80,7 +131,6 @@
         top: 0;
         right: 0;
         padding-top: 0px !important;
-        flex-basis: 1px !important;
         height: calc(var(--mud-appbar-height) - var(--mud-appbar-height) / 8);
     }
 
@@ -98,5 +148,10 @@
             linear-gradient(to bottom,
                 rgba(0, 0, 0, 0),
                 rgba(0, 0, 0, 0.6));
+    }
+
+    .grid-action-icons {
+        height: 100%;
+        padding-right: 8px;
     }
 </style>
