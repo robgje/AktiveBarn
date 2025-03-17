@@ -23,6 +23,7 @@ public static class MauiProgram
 
         builder.Services.AddMauiBlazorWebView();
         builder.Services.AddMudServices();
+        builder.Services.AddLocalization();
 
         MudGlobal.UnhandledExceptionHandler = Console.WriteLine;
 

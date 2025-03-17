@@ -15,6 +15,9 @@
     <MudMainContent Class="main-content">
         @Body
     </MudMainContent>
+    <MudAppBar Elevation="1" Class="footer-bottom">
+        This is footer
+    </MudAppBar>
 </MudLayout>
 @code {
     bool _drawerOpen = true;
@@ -27,7 +30,17 @@
 
 <style>
     .main-content {
-        background-color: #F2F2F2;
-        padding-top: 0;
+        background-color: #F2F2F2;;
+        padding-top: 0px;
+        margin-bottom: 50px;
+        height: 100vh;
     }
+
+   .footer-bottom.mud-appbar {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: auto;
+      height: 50px;
+   }
 </style>

@@ -1,40 +1,105 @@
+@using AktiveBarn.Shared.Utils;
+@using System.Globalization;
+
 @* https://dribbble.com/shots/4816476--Taekwon-Do-Competitions-Schedule *@
 @* https://dribbble.com/tags/event-card *@
 
-<MudContainer MaxWidth="MaxWidth.Large">
-    <MudPaper Class="mud-theme-primary">
-        <MudGrid Justify="Justify.FlexStart">
+<MudContainer MaxWidth="MaxWidth.Large" Class="">
+    <MudPaper Class="rounded-xl" Elevation="2">
+        <MudGrid Justify="Justify.FlexStart" Spacing="4">
             @foreach (var item in events)
             {
                 <MudItem xs="12" md="6">
-                    <MudGrid>
-                        <MudItem xs="12">
-                            <MudPaper Elevation="0">
-                                <MudText Typo="Typo.h6">@item.Name</MudText>
-                            </MudPaper>
-                        </MudItem>
-                    </MudGrid>
+                    <MudPaper Elevation="0" Class="pa-2">
+                        <MudGrid>
+                            <MudItem xs="12">
+                                <div class="d-flex justify-center">
+                                    <MudImage ObjectFit="ObjectFit.Cover" Height="200" Width="400" Src="images/mountain.jpg" Alt="Örebro Slott"  Elevation="25" Class="rounded-lg"/>
+                                </div>
+                            </MudItem>
+                            <MudItem xs="12">
+                                
+                                <MudGrid Justify="Justify.FlexStart" Spacing="2">
+                                    
+                                    <MudItem xs="12">
+                                        <MudText Typo="Typo.h5">@item.Name</MudText>
+                                    </MudItem>
+                                    <MudItem xs="1">
+                                        <MudIcon Icon="@Icons.Material.Filled.LocationOn" />
+                                    </MudItem>
+                                    <MudItem xs="11">
+                                        <MudText Typo="Typo.subtitle1">@item.Location</MudText>
+                                    </MudItem>
+                                    <MudItem xs="1">
+                                        <MudIcon Icon="@Icons.Material.Filled.CalendarToday" />
+                                    </MudItem>
+                                    <MudItem xs="11">
+                                        <MudText Typo="Typo.subtitle1">@item.Date.ToString("HH:mm") - @item.Date.ToString("D", nbNO)</MudText>
+                                    </MudItem>
+                                    <MudItem xs="1">
+                                        <MudIcon Icon="@Icons.Material.Filled.Info" Color="Color.Info" />
+                                    </MudItem>
+                                    <MudItem xs="11">
+                                        <MudText Typo="Typo.body2">@item.Description</MudText>
+                                    </MudItem>
+                                </MudGrid>
+                                
+                            </MudItem>
+                            <MudItem xs="4">
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary">Read more</MudButton>
+                            </MudItem>
+                        </MudGrid>
+                    </MudPaper>
                 </MudItem>
+                @if(events.Count > 1)
+                {
+                    <MudItem xs="12">
+                        <MudDivider DividerType="DividerType.Middle" FlexItem="true" />
+                    </MudItem>
+                }
             }
         </MudGrid>
-
     </MudPaper>
 </MudContainer>
 
 @code {
     private List<EventItem> events = new List<EventItem>();
+    private readonly CultureInfo nbNO = CultureInfoUtil.GetCapitalizedCultureInfo("nb-NO");
 
     protected override async Task OnInitializedAsync()
     {
         // Load events here
         events = [
-        new() { Name = "Event 1" },
-new() { Name = "Event 2" }
+            new() { 
+                Name = "Circus Merano",
+                Date = DateTime.Now,
+                Location = "Karl Johans gt. 1, Oslo",
+                Description = "This is a description of the event"
+            },
+            new() { 
+                Name = "Event 2",
+                Date = DateTime.Now,
+                Location = "Rådhusgaten 3, Bergen",
+                Description = "This is a longer description of the event that is taking place and is meant to break the line because it is too long."
+            },
+            new() { 
+                Name = "Event 2",
+                Date = DateTime.Now,
+                Location = "Rådhusgaten 3, Bergen",
+                Description = "This is a longer description of the event that is taking place and is meant to break the line because it is too long. This is a longer description of the event that is taking place and is meant to break the line because it is too long."
+            }
         ];
     }
 
     class EventItem
     {
         public required string Name { get; set; }
+        public required DateTime Date { get; set; }
+        public required string Location { get; set; }
+        public required string Description { get; set; }
     }
 }
+
+<style>
+
+</style>
