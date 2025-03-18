@@ -12,7 +12,7 @@
     <MudDrawer @bind-Open="@_drawerOpen" Elevation="0" Class="pt-8">
         <NavMenu />
     </MudDrawer>
-    <MudMainContent Class="main-content">
+    <MudMainContent Class="main-content pb-2">
         @Body
     </MudMainContent>
     <MudAppBar Elevation="1" Class="footer-bottom">
@@ -30,10 +30,11 @@
 
 <style>
     .main-content {
-        background-color: #F2F2F2;;
+        background-color: #F2F2F2;
         padding-top: 0px;
+        padding-bottom: 8px;
         margin-bottom: 50px;
-        height: 100vh;
+        min-height: 100vh; /* Ensure the content area takes at least the full height of the viewport */
     }
 
    .footer-bottom.mud-appbar {

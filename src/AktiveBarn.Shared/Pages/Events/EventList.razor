@@ -4,52 +4,106 @@
 @* https://dribbble.com/shots/4816476--Taekwon-Do-Competitions-Schedule *@
 @* https://dribbble.com/tags/event-card *@
 
-<MudContainer MaxWidth="MaxWidth.Large" Class="">
-    <MudPaper Class="rounded-xl" Elevation="2">
-        <MudGrid Justify="Justify.FlexStart" Spacing="4">
+<MudContainer MaxWidth="MaxWidth.Large">
+    <MudPaper Class="rounded-lg" Elevation="2">
+        <MudGrid Justify="Justify.Center" Spacing="4">
             @foreach (var item in events)
             {
-                <MudItem xs="12" md="6">
-                    <MudPaper Elevation="0" Class="pa-2">
-                        <MudGrid>
-                            <MudItem xs="12">
-                                <div class="d-flex justify-center">
-                                    <MudImage ObjectFit="ObjectFit.Cover" Height="200" Width="400" Src="images/mountain.jpg" Alt="Örebro Slott"  Elevation="25" Class="rounded-lg"/>
-                                </div>
+                <MudItem xs="12" md="6" Class="pt-0">
+
+                    <MudPaper Elevation="0" Class="pa-4 rounded-lg">
+                        <MudGrid Justify="Justify.Center">
+                            <MudItem xs="12" >
+                                <MudPaper Class="image-content-paper">
+                                    <MudImage Class="rounded-lg mb-n2" ObjectFit="ObjectFit.Contain" Src="images/mountain.jpg" Alt="Örebro Slott" Elevation="25" Style="width:100%; height:auto;"/>
+                                </MudPaper>
                             </MudItem>
                             <MudItem xs="12">
-                                
-                                <MudGrid Justify="Justify.FlexStart" Spacing="2">
-                                    
+                                <MudChip T="string" Size="Size.Small" Icon="@Icons.Material.Filled.TheaterComedy" Label="true" Style="@($"background: {Colors.Blue.Lighten4};")">Underholdning</MudChip>
+                                <MudChip T="string" Size="Size.Small" Icon="@Icons.Material.Filled.MusicNote" Label="true" Style="@($"background: {Colors.Blue.Lighten4};")">Musikk</MudChip>
+                            </MudItem>
+                            <MudItem xs="12">
+                                <MudGrid Justify="Justify.FlexStart" Spacing="1" Class="mx-2">
                                     <MudItem xs="12">
-                                        <MudText Typo="Typo.h5">@item.Name</MudText>
+                                        <MudText Typo="Typo.h5"><b>@item.Title</b></MudText>
                                     </MudItem>
-                                    <MudItem xs="1">
-                                        <MudIcon Icon="@Icons.Material.Filled.LocationOn" />
-                                    </MudItem>
-                                    <MudItem xs="11">
-                                        <MudText Typo="Typo.subtitle1">@item.Location</MudText>
-                                    </MudItem>
-                                    <MudItem xs="1">
-                                        <MudIcon Icon="@Icons.Material.Filled.CalendarToday" />
+                                    <MudItem xs="1" Class="mr-n2">
+                                        <MudIcon Icon="@Icons.Material.Filled.LocationOn"/>
                                     </MudItem>
                                     <MudItem xs="11">
-                                        <MudText Typo="Typo.subtitle1">@item.Date.ToString("HH:mm") - @item.Date.ToString("D", nbNO)</MudText>
+                                        <MudText Typo="Typo.subtitle2"><b>@item.Location</b></MudText>
                                     </MudItem>
-                                    <MudItem xs="1">
-                                        <MudIcon Icon="@Icons.Material.Filled.Info" Color="Color.Info" />
-                                    </MudItem>
-                                    <MudItem xs="11">
-                                        <MudText Typo="Typo.body2">@item.Description</MudText>
+                                    <MudItem xs="12">
+                                        <MudGrid Justify="Justify.Center" Spacing="0">
+                                            <MudItem xs="3">
+                                                <MudPaper Elevation="0" Class="d-flex flex-column flex-grow-1 align-center justify-center mud-height-full image-content-paper">
+                                                    <MudText Typo="Typo.h6">@item.Date.ToString("dd") @item.Date.ToString("MMM")</MudText>
+                                                    <MudText Typo="Typo.h6" Style="@($"color:{Colors.Gray.Lighten1}")">Dato</MudText>
+                                                </MudPaper>
+                                            </MudItem>
+                                            <MudItem xs="1" Class="align-content-center">
+                                                <MudDivider Vertical="true" DividerType="DividerType.Middle" Class="divider-height" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudPaper Elevation="0" Class="d-flex flex-column flex-grow-1 align-center justify-center mud-height-full image-content-paper">
+                                                    <MudText Typo="Typo.h6">@item.Date.ToString("HH:mm")</MudText>
+                                                    <MudText Typo="Typo.h6" Style="@($"color:{Colors.Gray.Lighten1}")">Tid</MudText>
+                                                </MudPaper>
+                                            </MudItem>
+                                            <MudItem xs="1" Class="align-content-center">
+                                                <MudDivider DividerType="DividerType.Middle" Vertical="true" Class="divider-height" />
+                                            </MudItem>
+                                            <MudItem xs="3">
+                                                <MudPaper Elevation="0" Class="d-flex flex-column flex-grow-1 align-center justify-center mud-height-full image-content-paper">
+                                                    <MudIconButton Icon="@Icons.Material.Filled.LocationOn" Color="Color.Dark" Ripple="true" Style="height:32px;"/>
+                                                    <MudText Typo="Typo.h6" Style="@($"color:{Colors.Gray.Lighten1}")">Kart</MudText>
+                                                </MudPaper>
+                                            </MudItem>
+                                        </MudGrid>
                                     </MudItem>
                                 </MudGrid>
-                                
-                            </MudItem>
-                            <MudItem xs="4">
-                                <MudButton Variant="Variant.Filled" Color="Color.Primary">Read more</MudButton>
+                                @* <MudDivider FlexItem="true" Class="mt-3"/> *@
                             </MudItem>
                         </MudGrid>
                     </MudPaper>
+                </MudItem>
+                <MudItem xs="12" Class="pt-0">
+                    <MudExpansionPanels>
+                        <MudPaper Class="pt-2 pb-2 px-4" Elevation="0">
+                            <MudStack Spacing="0">
+                                <MudButton Class="mx-4" Variant="Variant.Filled" Color="Color.Info" OnClick="() => OnExpandCollapseClick(item.Id)">
+                                    @((item.IsExpanded) ? "Skjul" : "Beskrivelse")
+                                </MudButton>
+                                <MudCollapse Expanded="item.IsExpanded">
+                                    @* <MudDivider FlexItem="true" Class="ma-4" /> *@
+                                    <MudPaper Class="pa-2 ma-4" Elevation="1">
+                                        <MudCard Outlined="false" Elevation="0">
+                                            <MudCardContent>
+                                                @if (!string.IsNullOrEmpty(item.SubTitle))
+                                                {
+                                                    <MudText Typo="Typo.subtitle1">@item.SubTitle</MudText>
+                                                }
+                                                <MudFlexBreak />
+                                                <MudText GutterBottom="true" Align="Align.Justify" Typo="Typo.body2">@item.Description</MudText>
+                                            </MudCardContent>
+                                            @if (item.Uri != null)
+                                            {
+                                                <MudCardActions Class="d-flex justify-center">
+                                                    <MudButton Href="@item.Uri.ToString()"
+                                                        Target="_blank"
+                                                        Variant="Variant.Filled"
+                                                        EndIcon="@Icons.Material.Filled.OpenInNew"
+                                                        Color="Color.Info">
+                                                        Les mer
+                                                    </MudButton>
+                                                </MudCardActions>
+                                            }
+                                        </MudCard>
+                                    </MudPaper>
+                                </MudCollapse>
+                            </MudStack>
+                        </MudPaper>
+                    </MudExpansionPanels>
                 </MudItem>
                 @if(events.Count > 1)
                 {
@@ -66,24 +120,29 @@
     private List<EventItem> events = new List<EventItem>();
     private readonly CultureInfo nbNO = CultureInfoUtil.GetCapitalizedCultureInfo("nb-NO");
 
+    private MudTheme Theme = new MudTheme();
+
     protected override async Task OnInitializedAsync()
     {
         // Load events here
         events = [
-            new() { 
-                Name = "Circus Merano",
+            new() {
+                Title = "Circus Merano",
+                SubTitle = "Norges National Cirkus er tilbake",
                 Date = DateTime.Now,
                 Location = "Karl Johans gt. 1, Oslo",
-                Description = "This is a description of the event"
+                Description = "I løpet av få år ble Cirkus Merano et av Europas ledende cirkus. kjent for høy kvalitet og engasjerende innhold med akrobater, klovner og dyr i verdensklasse. Gjennom årene utviklet Cirkus Merano seg kontinuerlig for å holde tritt med det kresne publikums endrede preferanser. På 1980-tallet begynte Dahl å inkludere mer moderne teknologiske elementer i sine show. Lys- og lydeffekter, sammen med imponerende kostymer, slott og elefanter som reiste seg i manesjen ved forestillingens slutt, var noe helt nytt i sirkus, men bidro til å heve opplevelsen og skape en visuell fest for publikum.",
+                Uri = new Uri("https://merano.no/"),
+                IsExpanded = true
             },
             new() { 
-                Name = "Event 2",
+                Title = "Event 2",
                 Date = DateTime.Now,
                 Location = "Rådhusgaten 3, Bergen",
                 Description = "This is a longer description of the event that is taking place and is meant to break the line because it is too long."
             },
             new() { 
-                Name = "Event 2",
+                Title = "Event 2",
                 Date = DateTime.Now,
                 Location = "Rådhusgaten 3, Bergen",
                 Description = "This is a longer description of the event that is taking place and is meant to break the line because it is too long. This is a longer description of the event that is taking place and is meant to break the line because it is too long."
@@ -91,15 +150,39 @@
         ];
     }
 
+    private void OnExpandCollapseClick(Guid id)
+    {
+        var item = events.FirstOrDefault(x => x.Id == id);
+        if (item != null)
+        {
+            item.IsExpanded = !item.IsExpanded;
+        }
+    }
+
     class EventItem
     {
-        public required string Name { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public required string Title { get; set; }
+        public string? SubTitle { get; set; }
         public required DateTime Date { get; set; }
         public required string Location { get; set; }
         public required string Description { get; set; }
+        public Uri? Uri { get; set; }
+        public bool IsExpanded { get; set; }
     }
 }
 
 <style>
 
+.image-content-paper {
+        background-color: var(--mud-paper-elevation-0);
+    }
+
+    .divider-height {
+        height: calc(100% - 12px);
+    }
+
+    .info-chip .blue.lighten-2 {
+        
+    }
 </style>
