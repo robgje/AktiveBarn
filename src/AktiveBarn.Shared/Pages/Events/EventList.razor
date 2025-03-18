@@ -4,117 +4,120 @@
 @* https://dribbble.com/shots/4816476--Taekwon-Do-Competitions-Schedule *@
 @* https://dribbble.com/tags/event-card *@
 
-<MudContainer MaxWidth="MaxWidth.Large">
-    <MudPaper Class="rounded-lg" Elevation="2">
-        <MudGrid Justify="Justify.Center" Spacing="4">
-            @foreach (var item in events)
-            {
-                <MudItem xs="12" md="6" Class="pt-0">
+<MudPaper Class="rounded-lg" Elevation="2">
+    <MudGrid Justify="Justify.Center" Spacing="4">
+        @foreach (var item in events)
+        {
+            <MudItem xs="12" md="6" Class="pt-0">
 
-                    <MudPaper Elevation="0" Class="pa-4 rounded-lg">
-                        <MudGrid Justify="Justify.Center">
-                            <MudItem xs="12" >
-                                <MudPaper Class="image-content-paper">
-                                    <MudImage Class="rounded-lg mb-n2" ObjectFit="ObjectFit.Contain" Src="images/mountain.jpg" Alt="Örebro Slott" Elevation="25" Style="width:100%; height:auto;"/>
+                <MudPaper Class="pa-4 rounded-lg" Elevation="0">
+                    <MudGrid Justify="Justify.Center">
+                        <MudItem xs="12" >
+                            <MudPaper Class="image-content-paper container" Elevation="0">
+                                <MudImage Class="rounded-lg mb-n2" ObjectFit="ObjectFit.Contain" Src="images/mountain.jpg" Alt="Örebro Slott" Elevation="25" Style="width:100%; height:auto;"/>
+                                <MudPaper Class="mud-palette-white container-grid rounded-bl-l rounded-tr-l rounded-br-0 rounded-tl-0 pa-1" Elevation="0">
+                                    <MudIconButton Icon="@Icons.Material.Rounded.FavoriteBorder" Color="Color.Dark" Size="Size.Small" Class="pa-1"/>
+                                    <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Info" Size="Size.Small" Class="pa-1"/>
+                                    <MudIconButton Icon="@Icons.Material.Filled.CalendarMonth" Color="Color.Tertiary" Size="Size.Small" Class="pa-1"/>
                                 </MudPaper>
-                            </MudItem>
-                            <MudItem xs="12">
-                                <MudChip T="string" Size="Size.Small" Icon="@Icons.Material.Filled.TheaterComedy" Label="true" Style="@($"background: {Colors.Blue.Lighten4};")">Underholdning</MudChip>
-                                <MudChip T="string" Size="Size.Small" Icon="@Icons.Material.Filled.MusicNote" Label="true" Style="@($"background: {Colors.Blue.Lighten4};")">Musikk</MudChip>
-                            </MudItem>
-                            <MudItem xs="12">
-                                <MudGrid Justify="Justify.FlexStart" Spacing="1" Class="mx-2">
-                                    <MudItem xs="12">
-                                        <MudText Typo="Typo.h5"><b>@item.Title</b></MudText>
-                                    </MudItem>
-                                    <MudItem xs="1" Class="mr-n2">
-                                        <MudIcon Icon="@Icons.Material.Filled.LocationOn"/>
-                                    </MudItem>
-                                    <MudItem xs="11">
-                                        <MudText Typo="Typo.subtitle2"><b>@item.Location</b></MudText>
-                                    </MudItem>
-                                    <MudItem xs="12">
-                                        <MudGrid Justify="Justify.Center" Spacing="0">
-                                            <MudItem xs="3">
-                                                <MudPaper Elevation="0" Class="d-flex flex-column flex-grow-1 align-center justify-center mud-height-full image-content-paper">
-                                                    <MudText Typo="Typo.h6">@item.Date.ToString("dd") @item.Date.ToString("MMM")</MudText>
-                                                    <MudText Typo="Typo.h6" Style="@($"color:{Colors.Gray.Lighten1}")">Dato</MudText>
-                                                </MudPaper>
-                                            </MudItem>
-                                            <MudItem xs="1" Class="align-content-center">
-                                                <MudDivider Vertical="true" DividerType="DividerType.Middle" Class="divider-height" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudPaper Elevation="0" Class="d-flex flex-column flex-grow-1 align-center justify-center mud-height-full image-content-paper">
-                                                    <MudText Typo="Typo.h6">@item.Date.ToString("HH:mm")</MudText>
-                                                    <MudText Typo="Typo.h6" Style="@($"color:{Colors.Gray.Lighten1}")">Tid</MudText>
-                                                </MudPaper>
-                                            </MudItem>
-                                            <MudItem xs="1" Class="align-content-center">
-                                                <MudDivider DividerType="DividerType.Middle" Vertical="true" Class="divider-height" />
-                                            </MudItem>
-                                            <MudItem xs="3">
-                                                <MudPaper Elevation="0" Class="d-flex flex-column flex-grow-1 align-center justify-center mud-height-full image-content-paper">
-                                                    <MudIconButton Icon="@Icons.Material.Filled.LocationOn" Color="Color.Dark" Ripple="true" Style="height:32px;"/>
-                                                    <MudText Typo="Typo.h6" Style="@($"color:{Colors.Gray.Lighten1}")">Kart</MudText>
-                                                </MudPaper>
-                                            </MudItem>
-                                        </MudGrid>
-                                    </MudItem>
-                                </MudGrid>
-                                @* <MudDivider FlexItem="true" Class="mt-3"/> *@
-                            </MudItem>
-                        </MudGrid>
-                    </MudPaper>
-                </MudItem>
-                <MudItem xs="12" Class="pt-0">
-                    <MudExpansionPanels>
-                        <MudPaper Class="pt-2 pb-2 px-4" Elevation="0">
-                            <MudStack Spacing="0">
-                                <MudButton Class="mx-4" Variant="Variant.Filled" Color="Color.Info" OnClick="() => OnExpandCollapseClick(item.Id)">
-                                    @((item.IsExpanded) ? "Skjul" : "Beskrivelse")
-                                </MudButton>
-                                <MudCollapse Expanded="item.IsExpanded">
-                                    @* <MudDivider FlexItem="true" Class="ma-4" /> *@
-                                    <MudPaper Class="pa-2 ma-4" Elevation="1">
-                                        <MudCard Outlined="false" Elevation="0">
-                                            <MudCardContent>
-                                                @if (!string.IsNullOrEmpty(item.SubTitle))
-                                                {
-                                                    <MudText Typo="Typo.subtitle1">@item.SubTitle</MudText>
-                                                }
-                                                <MudFlexBreak />
-                                                <MudText GutterBottom="true" Align="Align.Justify" Typo="Typo.body2">@item.Description</MudText>
-                                            </MudCardContent>
-                                            @if (item.Uri != null)
+                            </MudPaper>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudChip T="string" Size="Size.Small" Icon="@Icons.Material.Filled.TheaterComedy" Label="true" Style="@($"background: {Colors.Blue.Lighten4};")">Underholdning</MudChip>
+                            <MudChip T="string" Size="Size.Small" Icon="@Icons.Material.Filled.MusicNote" Label="true" Style="@($"background: {Colors.Blue.Lighten4};")">Musikk</MudChip>
+                            <MudChip T="string" Size="Size.Small" Icon="@Icons.Material.Filled.MoneyOff" Label="true" Style="@($"background: {Colors.Blue.Lighten4};")">Gratis</MudChip>
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudGrid Justify="Justify.FlexStart" Spacing="1" Class="mx-2">
+                                <MudItem xs="12">
+                                    <MudText Typo="Typo.h5"><b>@item.Title</b></MudText>
+                                </MudItem>
+                                <MudItem xs="1" Class="mr-0">
+                                    <MudIcon Icon="@Icons.Material.Filled.LocationOn"/>
+                                </MudItem>
+                                <MudItem xs="11">
+                                    <MudText Typo="Typo.subtitle2"><b>@item.Location</b></MudText>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudGrid Justify="Justify.Center" Spacing="0">
+                                        <MudItem xs="3">
+                                            <MudPaper Elevation="0" Class="d-flex flex-column flex-grow-1 align-center justify-center mud-height-full image-content-paper">
+                                                <MudText Typo="Typo.h6">@item.Date.ToString("dd") @item.Date.ToString("MMM")</MudText>
+                                                <MudText Typo="Typo.h6" Style="@($"color:{Colors.Gray.Lighten1}")">Dato</MudText>
+                                            </MudPaper>
+                                        </MudItem>
+                                        <MudItem xs="1" Class="align-content-center">
+                                            <MudDivider Vertical="true" DividerType="DividerType.Middle" Class="divider-height" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudPaper Elevation="0" Class="d-flex flex-column flex-grow-1 align-center justify-center mud-height-full image-content-paper">
+                                                <MudText Typo="Typo.h6">@item.Date.ToString("HH:mm")</MudText>
+                                                <MudText Typo="Typo.h6" Style="@($"color:{Colors.Gray.Lighten1}")">Tid</MudText>
+                                            </MudPaper>
+                                        </MudItem>
+                                        <MudItem xs="1" Class="align-content-center">
+                                            <MudDivider DividerType="DividerType.Middle" Vertical="true" Class="divider-height" />
+                                        </MudItem>
+                                        <MudItem xs="3">
+                                            <MudPaper Elevation="0" Class="d-flex flex-column flex-grow-1 align-center justify-center mud-height-full image-content-paper">
+                                                <MudIconButton Icon="@Icons.Material.Filled.LocationOn" Color="Color.Dark" Ripple="true" Style="height:32px;"/>
+                                                <MudText Typo="Typo.h6" Style="@($"color:{Colors.Gray.Lighten1}")">Kart</MudText>
+                                            </MudPaper>
+                                        </MudItem>
+                                    </MudGrid>
+                                </MudItem>
+                            </MudGrid>
+                            @* <MudDivider FlexItem="true" Class="mt-3"/> *@
+                        </MudItem>
+                    </MudGrid>
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="12" Class="pt-0">
+                <MudExpansionPanels>
+                    <MudPaper Class="pa-2" Elevation="0">
+                        <MudStack Spacing="0">
+                            <MudButton Class="mx-4" Variant="Variant.Filled" Color="Color.Info" OnClick="() => OnExpandCollapseClick(item.Id)">
+                                @((item.IsExpanded) ? "Skjul" : "Beskrivelse")
+                            </MudButton>
+                            <MudCollapse Expanded="item.IsExpanded">
+                                <MudPaper Class="pa-2 ma-4" Elevation="1">
+                                    <MudCard Outlined="false" Elevation="0">
+                                        <MudCardContent>
+                                            @if (!string.IsNullOrEmpty(item.SubTitle))
                                             {
-                                                <MudCardActions Class="d-flex justify-center">
-                                                    <MudButton Href="@item.Uri.ToString()"
-                                                        Target="_blank"
-                                                        Variant="Variant.Filled"
-                                                        EndIcon="@Icons.Material.Filled.OpenInNew"
-                                                        Color="Color.Info">
-                                                        Les mer
-                                                    </MudButton>
-                                                </MudCardActions>
+                                                <MudText Typo="Typo.subtitle1">@item.SubTitle</MudText>
                                             }
-                                        </MudCard>
-                                    </MudPaper>
-                                </MudCollapse>
-                            </MudStack>
-                        </MudPaper>
-                    </MudExpansionPanels>
+                                            <MudFlexBreak />
+                                            <MudText GutterBottom="true" Typo="Typo.body2">@item.Description</MudText>
+                                        </MudCardContent>
+                                        @if (item.Uri != null)
+                                        {
+                                            <MudCardActions Class="d-flex justify-center">
+                                                <MudButton Href="@item.Uri.ToString()"
+                                                    Target="_blank"
+                                                    Variant="Variant.Filled"
+                                                    EndIcon="@Icons.Material.Filled.OpenInNew"
+                                                    Color="Color.Info">
+                                                    Les mer
+                                                </MudButton>
+                                            </MudCardActions>
+                                        }
+                                    </MudCard>
+                                </MudPaper>
+                            </MudCollapse>
+                        </MudStack>
+                    </MudPaper>
+                </MudExpansionPanels>
+            </MudItem>
+            @if(events.Count > 1)
+            {
+                <MudItem xs="12">
+                    <MudDivider DividerType="DividerType.Middle" FlexItem="true" />
                 </MudItem>
-                @if(events.Count > 1)
-                {
-                    <MudItem xs="12">
-                        <MudDivider DividerType="DividerType.Middle" FlexItem="true" />
-                    </MudItem>
-                }
             }
-        </MudGrid>
-    </MudPaper>
-</MudContainer>
+        }
+    </MudGrid>
+</MudPaper>
 
 @code {
     private List<EventItem> events = new List<EventItem>();
@@ -182,7 +185,15 @@
         height: calc(100% - 12px);
     }
 
-    .info-chip .blue.lighten-2 {
-        
+    .container {
+        position: relative;
     }
+
+    .container-grid {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+    
 </style>
