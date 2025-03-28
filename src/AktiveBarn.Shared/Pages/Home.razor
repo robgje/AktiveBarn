@@ -5,25 +5,96 @@
 @using AktiveBarn.Shared.Pages.Common
 @using AktiveBarn.Shared.Pages.Events
 
-<GridContentLayout>
+<MudGrid Justify="Justify.Center" Class="d-flex">
+   <MudItem xs="12">
+      <MudPaper>
+         <ActivityItemCarousel />
+      </MudPaper>
+   </MudItem>
+   <MudItem xs="12" Class="pt-0 pb-0">
+      <MudContainer> 
+         <MudPaper Class="d-flex justify-space-around activity-item-chips rounded-pill pa-2 mt-n6 mb-n6" Elevation="2">
+            <MudIconButton Icon="@Icons.Material.Rounded.FavoriteBorder" Color="Color.Dark" Size="Size.Medium" Class="pa-1"/>
+            <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Info" Size="Size.Medium" Class="pa-1"/>
+            <MudIconButton Icon="@Icons.Material.Filled.CalendarMonth" Color="Color.Tertiary" Size="Size.Medium" Class="pa-1"/>
+         </MudPaper>
+      </MudContainer>
+   </MudItem>
+   <MudItem xs="12" Class="pt-0">
+      <MudPaper Class="activity-item-detail" Elevation="8">
+         <MudContainer MaxWidth="MaxWidth.Large" >
+            <MudGrid Justify="Justify.FlexStart" Spacing="1" Class="px-4 pt-10">
+               <MudItem xs="12">
+                  <MudChip T="string" Size="Size.Small" Icon="@Icons.Material.Filled.TheaterComedy" Label="true" Style="@($"background: {Colors.Blue.Lighten4};")">Underholdning</MudChip>
+                  <MudChip T="string" Size="Size.Small" Icon="@Icons.Material.Filled.MusicNote" Label="true" Style="@($"background: {Colors.Blue.Lighten4};")">Musikk</MudChip>
+                  <MudChip T="string" Size="Size.Small" Icon="@Icons.Material.Filled.MoneyOff" Label="true" Style="@($"background: {Colors.Blue.Lighten4};")">Gratis</MudChip>
+               </MudItem>
+               <MudItem xs="12">
+                  <MudText Typo="Typo.caption">Modern skyline metropolis</MudText>
+               </MudItem>
+               <MudItem xs="1">
+                  <MudIcon Icon="@Icons.Material.Filled.LocationOn" Size="Size.Small"/>
+               </MudItem>
+               <MudItem xs="11">
+                  <MudText Typo="Typo.subtitle2">Location</MudText>
+               </MudItem>
+            </MudGrid>
+            <MudGrid Justify="Justify.SpaceBetween" Spacing="1">
+               <MudItem xs="12">
+                  <MudIconButton Icon="@Icons.Material.Rounded.FavoriteBorder" />
+                  <MudDivider Vertical="true" />
+                  <MudIconButton Icon="@Icons.Material.Rounded.Share" />
+                  <MudDivider Vertical="true" />
+                  <MudIconButton Icon="@Icons.Material.Rounded.CalendarToday" />
+               </MudItem>
+            </MudGrid>
+         </MudContainer>
+      </MudPaper>
+   </MudItem>
+</MudGrid>
+
+<style>
+    .activity-item-detail {
+        z-index: 20;
+        position: relative;
+    }
+
+    .activity-item-chips {
+      z-index: 30;
+      position: relative;
+    }
+
+    .main-bg-color {
+         background-color: #F2F2F2;
+      }
+</style>
+
+
+@* <GridContentLayout>
    <TopFragment>
-      <Account/>
+      <ActivityItemCarousel />
    </TopFragment>
    <ContentFragment>
-      <MudItem xs="12">
-         <MudContainer MaxWidth="MaxWidth.Large">
-            <ActivitySwipe title="Favorites" />
-         </MudContainer>
-      </MudItem>
-      <MudItem xs="12">
-         <MudContainer MaxWidth="MaxWidth.Large">
-            <PaperDivider />
-         </MudContainer>
-      </MudItem>
-      <MudItem xs="12">
-         <MudContainer MaxWidth="MaxWidth.Large">
-            <EventList />
-         </MudContainer>
-      </MudItem>
+      <MudContainer MaxWidth="MaxWidth.Large">
+         <ActivityItemDetail />
+      </MudContainer>
    </ContentFragment>
-</GridContentLayout>
+</GridContentLayout> *@
+
+@* Uncomment when ActivityItemView is done *@
+@* <GridContentLayout>
+   <TopFragment>
+      <ActivityItemCarousel/>
+   </TopFragment>
+   <ContentFragment>
+      <MudContainer MaxWidth="MaxWidth.Large">
+         <ActivitySwipe title="Favorites" />
+      </MudContainer>
+      <MudContainer MaxWidth="MaxWidth.Large">
+         <PaperDivider />
+      </MudContainer>
+      <MudContainer MaxWidth="MaxWidth.Large">
+         <EventList />
+      </MudContainer>
+   </ContentFragment>
+</GridContentLayout> *@

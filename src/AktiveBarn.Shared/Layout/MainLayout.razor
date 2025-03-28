@@ -1,4 +1,5 @@
-﻿@inherits LayoutComponentBase
+﻿@using MudBlazor.Utilities
+@inherits LayoutComponentBase
 
 <MudThemeProvider DefaultScrollbar="true"/>
 <MudPopoverProvider />
@@ -6,8 +7,15 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-    <MudAppBar Color="Color.Transparent" Elevation="0">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+    <MudAppBar Bottom="true" Class="rounded-t-xl main-color-background" Elevation="4">
+        <MudPaper Class="d-flex justify-space-around main-color-background" Width="100%" Elevation="0">
+            @* <MudStack Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Row="true" StretchItems="StretchItems.Middle"> *@
+                <MudIconButton Ripple="true" Icon="@Icons.Material.Filled.Menu" Color="Color.Dark" OnClick="@((e) => DrawerToggle())" />
+                <MudIconButton Ripple="true" Icon="@Icons.Material.Filled.CalendarMonth" Color="Color.Dark" />
+                <MudIconButton Ripple="true" Icon="@Icons.Material.Filled.Favorite" Color="Color.Dark" />
+                <MudIconButton Ripple="true" Icon="@Icons.Material.Rounded.AccountCircle" Color="Color.Dark" />
+            @* </MudStack> *@
+        </MudPaper>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen" Elevation="0" Class="pt-8">
         <NavMenu />
@@ -15,12 +23,14 @@
     <MudMainContent Class="main-content pb-2">
         @Body
     </MudMainContent>
-    <MudAppBar Elevation="1" Class="footer-bottom">
+    @* <MudAppBar Elevation="1" Class="footer-bottom">
         This is footer
-    </MudAppBar>
+    </MudAppBar> *@
 </MudLayout>
+
 @code {
     bool _drawerOpen = true;
+    MudColor _color = Colors.Blue.Lighten1;
 
     void DrawerToggle()
     {
@@ -29,6 +39,7 @@
 }
 
 <style>
+    @* TODO: Find a way to share a class or css variable so MudButtonIcon and main-content can use the same color. Use it for Favorite Icon in carousel as well *@
     .main-content {
         background-color: #F2F2F2;
         padding-top: 0px;
@@ -37,11 +48,19 @@
         min-height: 100vh; /* Ensure the content area takes at least the full height of the viewport */
     }
 
-   .footer-bottom.mud-appbar {
+    .main-color {
+        color: #F2F2F2;
+    }
+
+    .main-color-background {
+        background-color: #F2F2F2;
+    }
+
+   @* .footer-bottom.mud-appbar {
       bottom: 0;
       left: 0;
       right: 0;
       top: auto;
       height: 50px;
-   }
+   } *@
 </style>

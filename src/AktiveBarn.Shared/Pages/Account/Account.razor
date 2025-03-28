@@ -1,6 +1,7 @@
 @using AktiveBarn.Shared.Layout
 @using AktiveBarn.Shared.Pages.Activity
 @using AktiveBarn.Shared.Pages.Common
+@using AktiveBarn.Shared.Pages.Events
 @page "/account"
 
 <GridContentLayout>
@@ -8,5 +9,8 @@
       <Profile />
    </TopFragment>
    <ContentFragment>
+      <MudContainer MaxWidth="MaxWidth.Large">
+         <EventList />
+      </MudContainer>
    </ContentFragment>
 </GridContentLayout>
